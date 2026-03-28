@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projet Bayna — Plan de financement</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brique:   #8B4A3C;
+    --brique-l: #C4775F;
+    --brique-xl:#F0DDD8;
+    --craie:    #F5F1EB;
+    --encre:    #1E1A16;
+    --gris:     #7A746E;
+    --gris-l:   #C8C3BC;
+    --gris-xl:  #EDE9E3;
+    --or:       #B8962E;
+    --vert:     #3A6B4A;
+    --vert-l:   #EBF2ED;
+    --orange:   #C46A2A;
+    --orange-l: #FBF0E6;
+    --rouge:    #8B2A2A;
+    --rouge-l:  #F7EAEA;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--craie);
+    color: var(--encre);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--encre);
+    color: var(--craie);
+    padding: 3rem 4rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 320px; height: 100%;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 18px,
+      rgba(139,74,60,0.15) 18px,
+      rgba(139,74,60,0.15) 19px
+    );
+  }
+  .header-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brique-l);
+    margin-bottom: 1rem;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+  header h1 span { color: var(--brique-l); }
+  .header-sub {
+    color: var(--gris-l);
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 0.75rem;
+  }
+  .header-meta {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .header-meta dt {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gris-l);
+    margin-bottom: 3px;
+  }
+  .header-meta dd {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--craie);
+  }
+
+  /* NAV TABS */
+  nav {
+    background: var(--encre);
+    border-bottom: 2px solid var(--brique);
+    display: flex;
+    gap: 0;
+    padding: 0 4rem;
+    overflow-x: auto;
+  }
+  nav button {
+    background: none;
+    border: none;
+    color: var(--gris-l);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    letter-spacing: 0.02em;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  nav button:hover { color: var(--craie); }
+  nav button.active {
+    color: var(--brique-l);
+    border-bottom-color: var(--brique-l);
+    font-weight: 500;
+  }
+
+  /* MAIN */
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 3rem 4rem;
+  }
+
+  /* PANELS */
+  .panel { display: none; animation: fadeIn 0.25s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* SECTION TITLES */
+  .section-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--brique);
+    margin-bottom: 0.4rem;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin-bottom: 1.75rem;
+    color: var(--encre);
+  }
+  h3 {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gris);
+    margin: 2rem 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--gris-xl);
+  }
+
+  /* METRIC CARDS */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .metrics-2 { grid-template-columns: repeat(2, 1fr); }
+  .metrics-4 { grid-template-columns: repeat(4, 1fr); }
+  .card {
+    background: #fff;
+    border: 1px solid var(--gris-xl);
+    padding: 1.25rem 1.5rem;
+    position: relative;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--gris-xl);
+  }
+  .card.accent::before { background: var(--brique); }
+  .card.good::before   { background: var(--vert); }
+  .card.warn::before   { background: var(--orange); }
+  .card.bad::before    { background: var(--rouge); }
+  .card-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gris);
+    margin-bottom: 0.4rem;
+  }
+  .card-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--encre);
+  }
+  .card-value.good { color: var(--vert); }
+  .card-value.warn { color: var(--orange); }
+  .card-value.bad  { color: var(--rouge); }
+  .card-sub {
+    font-size: 11px;
+    color: var(--gris);
+    margin-top: 0.3rem;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* COST TABLE */
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+  .cost-table th {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gris);
+    font-weight: 500;
+    text-align: right;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 2px solid var(--encre);
+  }
+  .cost-table th:first-child { text-align: left; }
+  .cost-table td {
+    padding: 0.6rem 0.75rem;
+    font-size: 14px;
+    border-bottom: 1px solid var(--gris-xl);
+    text-align: right;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+  }
+  .cost-table td:first-child {
+    text-align: left;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+  }
+  .cost-table td.sub-label {
+    font-size: 12px;
+    color: var(--gris);
+  }
+  .cost-table tr.group-header td {
+    background: var(--gris-xl);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gris);
+    font-weight: 500;
+    padding: 0.4rem 0.75rem;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .cost-table tr.total-row td {
+    background: var(--encre);
+    color: var(--craie);
+    font-weight: 500;
+    border: none;
+  }
+  .cost-table tr.total-row td:first-child { font-family: 'DM Sans', sans-serif; }
+  .cost-table tr.sub-total td {
+    background: var(--gris-xl);
+    font-weight: 500;
+  }
+
+  /* SCENARIOS */
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .scenario {
+    background: #fff;
+    border: 1px solid var(--gris-xl);
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.15s;
+    position: relative;
+  }
+  .scenario:hover { border-color: var(--brique-l); transform: translateY(-2px); }
+  .scenario.selected {
+    border-color: var(--brique);
+    border-width: 2px;
+  }
+  .scenario.selected::after {
+    content: '✓ sélectionné';
+    position: absolute;
+    top: 0.75rem; right: 0.75rem;
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    color: var(--brique);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .scenario-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    margin-bottom: 0.75rem;
+  }
+  .badge-prudent  { background: var(--gris-xl);   color: var(--gris); }
+  .badge-median   { background: var(--brique-xl);  color: var(--brique); }
+  .badge-optimiste{ background: var(--vert-l);     color: var(--vert); }
+  .scenario h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .scenario-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--gris-xl);
+  }
+  .scenario-row:last-of-type { border: none; }
+  .scenario-row span:first-child { color: var(--gris); }
+  .scenario-row span:last-child  { font-family: 'DM Mono', monospace; font-size: 12px; }
+  .scenario-result {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    font-size: 13px;
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+  }
+  .result-good   { background: var(--vert-l);   color: var(--vert); }
+  .result-warn   { background: var(--orange-l); color: var(--orange); }
+  .result-bad    { background: var(--rouge-l);  color: var(--rouge); }
+
+  /* SLIDERS */
+  .controls {
+    background: #fff;
+    border: 1px solid var(--gris-xl);
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+  }
+  .ctrl-row {
+    display: grid;
+    grid-template-columns: 180px 1fr 80px;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .ctrl-row:last-child { margin-bottom: 0; }
+  .ctrl-label {
+    font-size: 12px;
+    color: var(--gris);
+  }
+  input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 3px;
+    background: var(--gris-xl);
+    outline: none;
+    border-radius: 0;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px; height: 14px;
+    background: var(--brique);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .ctrl-val {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: right;
+  }
+
+  /* ALERTS */
+  .alert {
+    padding: 1rem 1.25rem;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    border-left: 3px solid;
+  }
+  .alert-info    { background: #EEF4FB; border-color: #2E6FAF; color: #1A3F66; }
+  .alert-warn    { background: var(--orange-l); border-color: var(--orange); color: #6B3A12; }
+  .alert-good    { background: var(--vert-l); border-color: var(--vert); color: #1E3D28; }
+  .alert-bad     { background: var(--rouge-l); border-color: var(--rouge); color: #4A1515; }
+
+  /* DYNAMIC RESULT */
+  #dyn-result {
+    background: #fff;
+    border: 1px solid var(--gris-xl);
+    padding: 2rem;
+    margin-top: 2rem;
+  }
+  .dyn-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+
+  /* NOTES */
+  .note-block {
+    border-top: 1px solid var(--gris-xl);
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+    font-size: 12px;
+    color: var(--gris);
+    line-height: 1.7;
+  }
+  .note-block strong { color: var(--encre); }
+
+  /* FOOTER */
+  footer {
+    background: var(--encre);
+    color: var(--gris-l);
+    padding: 1.5rem 4rem;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
+  }
+  footer span { font-family: 'DM Mono', monospace; font-size: 11px; }
+
+  @media (max-width: 720px) {
+    header, nav, main, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .metrics, .metrics-4 { grid-template-columns: 1fr 1fr; }
+    .scenario-grid { grid-template-columns: 1fr; }
+    .dyn-grid { grid-template-columns: 1fr 1fr; }
+    header h1 { font-size: 1.8rem; }
+    .ctrl-row { grid-template-columns: 1fr 80px; }
+    .ctrl-row .ctrl-label { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-tag">Notice financière · Mars 2026</div>
+  <h1>Projet <span>Bayna</span><br>114 chaussée de Waterloo</h1>
+  <div class="header-sub">Bâtiment annexe — construction neuve ossature bois · 4 studios · Saint-Gilles, Bruxelles</div>
+  <dl class="header-meta">
+    <div><dt>Maître d'ouvrage</dt><dd>Mme Majda Bayna</dd></div>
+    <div><dt>Architecte</dt><dd>BXLMRS / L. Bousquet</dd></div>
+    <div><dt>Surface neuve</dt><dd>200 m² SBP</dd></div>
+    <div><dt>Logements</dt><dd>4 studios ~40 m²</dd></div>
+    <div><dt>Structure</dt><dd>Ossature bois caissons</dd></div>
+  </dl>
+</header>
+
+<nav>
+  <button class="active" onclick="showPanel('scenarios', this)">Scénarios</button>
+  <button onclick="showPanel('couts', this)">Détail des coûts</button>
+  <button onclick="showPanel('recettes', this)">Recettes locatives</button>
+  <button onclick="showPanel('financement', this)">Plan de financement</button>
+  <button onclick="showPanel('rendement', this)">Rendement</button>
+</nav>
+
+<main>
+
+<!-- ═══ SCENARIOS ═══ -->
+<div class="panel active" id="panel-scenarios">
+  <div class="section-eyebrow">Vue d'ensemble</div>
+  <h2>Trois scénarios de coût</h2>
+
+  <div class="alert alert-info">
+    Honoraires architecte + BET fixés à <strong>15 % du coût des travaux HT</strong> · TVA 21 % sur construction neuve · Les scénarios varient selon le niveau d'ambition des finitions et l'aléa chantier.
+  </div>
+
+  <div class="scenario-grid">
+    <!-- PRUDENT -->
+    <div class="scenario selected" id="sc-prudent" onclick="selectScenario('prudent')">
+      <div class="scenario-badge badge-prudent">Scénario prudent</div>
+      <h4>Coût maîtrisé</h4>
+      <div class="scenario-row"><span>Travaux HTVA</span><span id="sp-trav">290 k€</span></div>
+      <div class="scenario-row"><span>Honoraires 15 %</span><span id="sp-hono">44 k€</span></div>
+      <div class="scenario-row"><span>Permis & frais</span><span id="sp-frais">5 k€</span></div>
+      <div class="scenario-row"><span>Total HTVA</span><span id="sp-htva">339 k€</span></div>
+      <div class="scenario-row"><span>Total TVAC</span><span id="sp-tvac">365 k€</span></div>
+      <div class="scenario-row"><span>Loyer mensuel /studio</span><span>800 €</span></div>
+      <div class="scenario-row"><span>Revenu net annuel</span><span>34 960 €</span></div>
+      <div class="scenario-row"><span>Annuité (20 ans, 3.8 %)</span><span>21 852 €</span></div>
+      <div class="scenario-result result-good">Marge +60 % · DSCR 1.60</div>
+    </div>
+
+    <!-- MÉDIAN -->
+    <div class="scenario" id="sc-median" onclick="selectScenario('median')">
+      <div class="scenario-badge badge-median">Scénario médian</div>
+      <h4>Référence de travail</h4>
+      <div class="scenario-row"><span>Travaux HTVA</span><span>358 k€</span></div>
+      <div class="scenario-row"><span>Honoraires 15 %</span><span>54 k€</span></div>
+      <div class="scenario-row"><span>Permis & frais</span><span>7 k€</span></div>
+      <div class="scenario-row"><span>Total HTVA</span><span>419 k€</span></div>
+      <div class="scenario-row"><span>Total TVAC</span><span>451 k€</span></div>
+      <div class="scenario-row"><span>Loyer mensuel /studio</span><span>850 €</span></div>
+      <div class="scenario-row"><span>Revenu net annuel</span><span>36 760 €</span></div>
+      <div class="scenario-row"><span>Annuité (20 ans, 3.8 %)</span><span>26 967 €</span></div>
+      <div class="scenario-result result-good">Marge +36 % · DSCR 1.36</div>
+    </div>
+
+    <!-- OPTIMISTE COÛT / PESSIMISTE LOYER -->
+    <div class="scenario" id="sc-haut" onclick="selectScenario('haut')">
+      <div class="scenario-badge badge-optimiste">Scénario haut</div>
+      <h4>Coût plafond</h4>
+      <div class="scenario-row"><span>Travaux HTVA</span><span>446 k€</span></div>
+      <div class="scenario-row"><span>Honoraires 15 %</span><span>67 k€</span></div>
+      <div class="scenario-row"><span>Permis & frais</span><span>10 k€</span></div>
+      <div class="scenario-row"><span>Total HTVA</span><span>523 k€</span></div>
+      <div class="scenario-row"><span>Total TVAC</span><span>563 k€</span></div>
+      <div class="scenario-row"><span>Loyer mensuel /studio</span><span>900 €</span></div>
+      <div class="scenario-row"><span>Revenu net annuel</span><span>38 560 €</span></div>
+      <div class="scenario-row"><span>Annuité (20 ans, 3.8 %)</span><span>33 686 €</span></div>
+      <div class="scenario-result result-good">Marge +14 % · DSCR 1.14</div>
+    </div>
+  </div>
+
+  <div class="metrics metrics-4">
+    <div class="card accent">
+      <div class="card-label">Coût /m² SBP médian</div>
+      <div class="card-value">2 255 €</div>
+      <div class="card-sub">TVAC tout compris</div>
+    </div>
+    <div class="card accent">
+      <div class="card-label">Coût /logement médian</div>
+      <div class="card-value">113 k€</div>
+      <div class="card-sub">TVAC · 4 studios</div>
+    </div>
+    <div class="card good">
+      <div class="card-label">Rendement brut médian</div>
+      <div class="card-value good">4,5 %</div>
+      <div class="card-sub">loyers bruts / coût TVAC</div>
+    </div>
+    <div class="card good">
+      <div class="card-label">Autofinancement</div>
+      <div class="card-value good">3 scénarios</div>
+      <div class="card-sub">marge ≥ 10 % dans tous</div>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <strong>Lecture :</strong> les trois scénarios couvrent la fourchette basse–haute des estimations casco précédentes, avec honoraires 15 % appliqués sur les travaux HT.
+    La TVA de 21 % est celle applicable à la construction neuve en Région bruxelloise.
+    Un taux réduit de 6 % peut s'appliquer sous conditions (part résidentielle, CBL) — à vérifier avec le comptable.
+  </div>
+</div>
+
+<!-- ═══ COÛTS ═══ -->
+<div class="panel" id="panel-couts">
+  <div class="section-eyebrow">Estimatif détaillé</div>
+  <h2>Décomposition des coûts</h2>
+  <div class="alert alert-warn">Estimatif au stade avant-projet, basé sur les ratios du marché bruxellois 2025–2026. À affiner après DCE et consultation des entreprises.</div>
+
+  <table class="cost-table">
+    <thead>
+      <tr>
+        <th>Poste</th>
+        <th>Hypothèse basse</th>
+        <th>Hypothèse haute</th>
+        <th>Médiane</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="group-header"><td colspan="4">Démolition</td></tr>
+      <tr><td>Déconstruction volume existant (murs, charpente, tuiles, évacuation)</td><td>8 k€</td><td>15 k€</td><td>12 k€</td></tr>
+      <tr><td>Protection & confortement mitoyens</td><td>3 k€</td><td>8 k€</td><td>6 k€</td></tr>
+      <tr class="group-header"><td colspan="4">Structure bois</td></tr>
+      <tr><td>Planchers ossature bois ancrés mitoyens (4 niveaux × 50 m²)</td><td>56 k€</td><td>84 k€</td><td>70 k€</td></tr>
+      <tr><td>Murs ossature bois — caissons insufflés laine de bois</td><td>30 k€</td><td>50 k€</td><td>40 k€</td></tr>
+      <tr class="group-header"><td colspan="4">Enveloppe</td></tr>
+      <tr><td>Façades — enduit lisse blanc cassé sur isolant</td><td>22 k€</td><td>36 k€</td><td>29 k€</td></tr>
+      <tr><td>Toiture — tuiles mécaniques, charpente, isolation</td><td>18 k€</td><td>28 k€</td><td>23 k€</td></tr>
+      <tr><td>Menuiseries bois/alu anthracite — triple vitrage</td><td>26 k€</td><td>40 k€</td><td>33 k€</td></tr>
+      <tr><td>Coursives extérieures — acier/bois, garde-corps</td><td>15 k€</td><td>25 k€</td><td>20 k€</td></tr>
+      <tr><td>Liaison cage d'escalier existante</td><td>15 k€</td><td>30 k€</td><td>22 k€</td></tr>
+      <tr class="group-header"><td colspan="4">Techniques + finitions (4 studios)</td></tr>
+      <tr><td>Techniques — CVC, électricité, sanitaire, VMC double flux</td><td>28 k€</td><td>44 k€</td><td>36 k€</td></tr>
+      <tr><td>Finitions intérieures — 4 × ~40 m²</td><td>20 k€</td><td>36 k€</td><td>28 k€</td></tr>
+      <tr class="sub-total">
+        <td>Sous-total travaux HTVA</td>
+        <td>241 k€</td><td>396 k€</td><td>319 k€</td>
+      </tr>
+      <tr class="group-header"><td colspan="4">Honoraires & frais (15 % des travaux HT)</td></tr>
+      <tr><td>Honoraires architecte + BET structure + coordinateur sécurité</td><td>36 k€</td><td>59 k€</td><td>48 k€</td></tr>
+      <tr><td>Permis d'urbanisme, taxes, frais administratifs</td><td>5 k€</td><td>10 k€</td><td>7 k€</td></tr>
+      <tr class="sub-total">
+        <td>Sous-total honoraires & frais</td>
+        <td>41 k€</td><td>69 k€</td><td>55 k€</td>
+      </tr>
+      <tr class="total-row">
+        <td>TOTAL HTVA</td><td>282 k€</td><td>465 k€</td><td>374 k€</td>
+      </tr>
+      <tr class="total-row">
+        <td>TOTAL TVAC (21 %)</td><td>341 k€</td><td>562 k€</td><td>452 k€</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="metrics metrics-2">
+    <div class="card">
+      <div class="card-label">Honoraires architecte + BET</div>
+      <div class="card-value">15 %</div>
+      <div class="card-sub">des travaux HT · inclus coordination sécurité</div>
+    </div>
+    <div class="card accent">
+      <div class="card-label">Ratio honoraires / coût total médian</div>
+      <div class="card-value">12,8 %</div>
+      <div class="card-sub">une fois intégré dans le total HTVA</div>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <strong>Périmètre des honoraires (15 %) :</strong> architecte (mission complète APD→chantier), BET stabilité, BET techniques (CVC/élec), coordinateur sécurité-santé (obligatoire).
+    Le rapport PEB avant-projet et la note incendie (SIAMU) sont inclus dans cette enveloppe.
+    Les frais de notaire et d'hypothèque liés au crédit sont hors périmètre.
+  </div>
+</div>
+
+<!-- ═══ RECETTES ═══ -->
+<div class="panel" id="panel-recettes">
+  <div class="section-eyebrow">Revenus locatifs</div>
+  <h2>Recettes annuelles projetées</h2>
+
+  <div class="controls">
+    <div class="ctrl-row">
+      <span class="ctrl-label">Loyer mensuel / studio</span>
+      <input type="range" min="650" max="1100" step="25" value="850" id="r-loyer" oninput="updateRecettes()">
+      <span class="ctrl-val" id="r-loyer-out">850 €</span>
+    </div>
+    <div class="ctrl-row">
+      <span class="ctrl-label">Taux de vacance</span>
+      <input type="range" min="2" max="15" step="1" value="5" id="r-vac" oninput="updateRecettes()">
+      <span class="ctrl-val" id="r-vac-out">5 %</span>
+    </div>
+    <div class="ctrl-row">
+      <span class="ctrl-label">Charges propr. / an</span>
+      <input type="range" min="3000" max="12000" step="500" value="5800" id="r-charges" oninput="updateRecettes()">
+      <span class="ctrl-val" id="r-charges-out">5 800 €</span>
+    </div>
+  </div>
+
+  <div class="metrics metrics-4" id="rec-metrics">
+    <div class="card">
+      <div class="card-label">Loyer brut annuel</div>
+      <div class="card-value" id="rec-brut">40 800 €</div>
+      <div class="card-sub">4 × 850 € × 12</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Perte vacance</div>
+      <div class="card-value" id="rec-vac">− 2 040 €</div>
+      <div class="card-sub">5 % du brut</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Charges propriétaire</div>
+      <div class="card-value" id="rec-charg">− 5 800 €</div>
+      <div class="card-sub">assur. + PrI + entretien</div>
+    </div>
+    <div class="card accent">
+      <div class="card-label">Revenu disponible / an</div>
+      <div class="card-value" id="rec-dispo">32 960 €</div>
+      <div class="card-sub" id="rec-dispo-sub">~ 2 747 €/mois</div>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <strong>Marché locatif Saint-Gilles 2025–2026 :</strong> un studio neuf BBC de 40 m² chaussée de Waterloo se positionne entre 800 € et 1 000 €/mois.
+    La valeur de 850 € est prudente ; 900–950 € est raisonnable pour un logement neuf labellisé BBC avec PEB A–B.
+    <br><br>
+    <strong>Charges propriétaire incluses :</strong> assurance immeuble (~1 500 €/an) · précompte immobilier (~1 800 €/an) · entretien courant (~1 500 €/an) · gestion locative agence si applicable (~1 000 €/an).
+    <br><br>
+    <strong>Fiscalité :</strong> revenus locatifs imposables en IPP sur la base du revenu cadastral indexé × 1,4 (si logement non-meublé). Optimisation possible via société de gestion — à valider avec le comptable.
+  </div>
+</div>
+
+<!-- ═══ FINANCEMENT ═══ -->
+<div class="panel" id="panel-financement">
+  <div class="section-eyebrow">Emprunt bancaire</div>
+  <h2>Plan de financement</h2>
+
+  <div class="controls">
+    <div class="ctrl-row">
+      <span class="ctrl-label">Coût total TVAC</span>
+      <input type="range" min="300000" max="570000" step="5000" value="452000" id="f-tot" oninput="updateFin()">
+      <span class="ctrl-val" id="f-tot-out">452 000 €</span>
+    </div>
+    <div class="ctrl-row">
+      <span class="ctrl-label">Apport fonds propres</span>
+      <input type="range" min="0" max="40" step="5" value="0" id="f-ap" oninput="updateFin()">
+      <span class="ctrl-val" id="f-ap-out">0 %</span>
+    </div>
+    <div class="ctrl-row">
+      <span class="ctrl-label">Taux d'intérêt fixe</span>
+      <input type="range" min="3.0" max="5.5" step="0.1" value="3.8" id="f-tx" oninput="updateFin()">
+      <span class="ctrl-val" id="f-tx-out">3.8 %</span>
+    </div>
+    <div class="ctrl-row">
+      <span class="ctrl-label">Durée du prêt</span>
+      <input type="range" min="10" max="25" step="5" value="20" id="f-dur" oninput="updateFin()">
+      <span class="ctrl-val" id="f-dur-out">20 ans</span>
+    </div>
+  </div>
+
+  <div id="fin-result">
+    <div class="metrics metrics-4">
+      <div class="card"><div class="card-label">Apport fonds propres</div><div class="card-value" id="fin-apport">90 400 €</div><div class="card-sub" id="fin-apport-sub">20 %</div></div>
+      <div class="card accent"><div class="card-label">Montant emprunté</div><div class="card-value" id="fin-emp">361 600 €</div><div class="card-sub">80 %</div></div>
+      <div class="card"><div class="card-label">Mensualité</div><div class="card-value" id="fin-men">2 163 €</div><div class="card-sub" id="fin-ann">25 956 €/an</div></div>
+      <div class="card"><div class="card-label">Coût total intérêts</div><div class="card-value" id="fin-int">157 k€</div><div class="card-sub">sur la durée</div></div>
+    </div>
+    <div id="fin-verdict" class="alert alert-good" style="margin-top:0;"></div>
+    <div id="fin-dscr" class="alert alert-info" style="margin-top:0.5rem;"></div>
+  </div>
+
+  <div class="note-block">
+    <strong>Conditions marché belge mars 2026 :</strong> taux investissement locatif 3,5–4,5 % sur 20 ans pour profil solide · apport exigé généralement 20–30 % · garantie hypothécaire sur immeuble neuf (inscription hypothécaire ~1,3 % du capital + frais notaire ~0,5–1 %).
+    <br><br>
+    <strong>Garanties complémentaires :</strong> la banque pourra demander une hypothèque sur l'immeuble existant (110–114 chaussée de Waterloo) en garantie additionnelle. La valeur locative des 4 studios sera prise en compte dans le calcul de la quotité empruntable.
+  </div>
+</div>
+
+<!-- ═══ RENDEMENT ═══ -->
+<div class="panel" id="panel-rendement">
+  <div class="section-eyebrow">Analyse de rentabilité</div>
+  <h2>Rendement & marge de sécurité</h2>
+
+  <h3>Comparatif des trois scénarios</h3>
+  <table class="cost-table">
+    <thead>
+      <tr>
+        <th>Indicateur</th>
+        <th>Prudent</th>
+        <th>Médian</th>
+        <th>Haut</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Coût total TVAC</td><td>365 k€</td><td>452 k€</td><td>563 k€</td></tr>
+      <tr><td>Loyer mensuel / studio</td><td>800 €</td><td>850 €</td><td>900 €</td></tr>
+      <tr><td>Loyer brut annuel (4 studios)</td><td>38 400 €</td><td>40 800 €</td><td>43 200 €</td></tr>
+      <tr><td>Revenu net annuel (après vacance 5 % + charges)</td><td>34 480 €</td><td>36 960 €</td><td>35 240 €</td></tr>
+      <tr><td>Annuité emprunt (80 %, 20 ans, 3.8 %)</td><td>21 827 €</td><td>26 985 €</td><td>33 644 €</td></tr>
+      <tr><td>Rendement brut</td><td>10,5 %</td><td>9,0 %</td><td>7,7 %</td></tr>
+      <tr><td>Rendement net</td><td>9,4 %</td><td>8,2 %</td><td>6,3 %</td></tr>
+      <tr><td>DSCR</td><td>1.58</td><td>1.37</td><td>1.05</td></tr>
+      <tr class="sub-total"><td>Marge après dette / an</td><td>+12 653 €</td><td>+9 975 €</td><td>+1 596 €</td></tr>
+      <tr class="sub-total"><td>Marge en % du revenu net</td><td>+37 %</td><td>+27 %</td><td>+5 %</td></tr>
+    </tbody>
+  </table>
+
+  <div class="metrics">
+    <div class="card good">
+      <div class="card-label">Scénario prudent</div>
+      <div class="card-value good">+37 %</div>
+      <div class="card-sub">marge confortable — objectif dépassé</div>
+    </div>
+    <div class="card good">
+      <div class="card-label">Scénario médian</div>
+      <div class="card-value good">+27 %</div>
+      <div class="card-sub">marge solide — référence de travail</div>
+    </div>
+    <div class="card warn">
+      <div class="card-label">Scénario haut</div>
+      <div class="card-value warn">+5 %</div>
+      <div class="card-sub">marge insuffisante — loyer cible 950 €</div>
+    </div>
+  </div>
+
+  <div class="alert alert-warn">
+    <strong>Scénario haut :</strong> avec un coût de 563 k€ TVAC et un loyer de 900 €, la marge est seulement de 5 % — en dessous de l'objectif 10–15 %. Pour maintenir la cible, il faut soit ramener le loyer à <strong>950 €/mois</strong> (studios ~40 m² nets de qualité), soit contenir le coût total sous <strong>500 k€ TVAC</strong>.
+  </div>
+
+  <div class="alert alert-good">
+    <strong>Conclusion :</strong> dans les scénarios prudent et médian, le projet est solidement autofinancé avec une marge largement supérieure à l'objectif de 10–15 %. Les loyers couvrent la dette et génèrent un excédent annuel de 10 000–13 000 € servant de réserve pour les aléas.
+  </div>
+
+  <div class="note-block">
+    <strong>DSCR (Debt Service Coverage Ratio) :</strong> rapport entre le revenu locatif net et l'annuité de la dette. Un DSCR ≥ 1,20 est généralement exigé par les banques belges pour les projets d'investissement locatif. Les scénarios prudent (1.58) et médian (1.37) satisfont largement ce critère.
+    <br><br>
+    <strong>Sensibilité :</strong> chaque 50 €/mois de loyer supplémentaire génère +2 400 €/an de revenu brut, soit environ +6 à +7 % de marge. La performance énergétique BBC (PEB A–B) du bâtiment neuf est un argument de valorisation locative significatif sur ce marché.
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div>Projet Bayna · 114 chaussée de Waterloo, 1060 Saint-Gilles · Notice financière avant-projet</div>
+  <span>BXLMRS architects · Mars 2026</span>
+</footer>
+
+<script>
+function showPanel(id, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function selectScenario(sc) {
+  ['prudent','median','haut'].forEach(s => document.getElementById('sc-'+s).classList.remove('selected'));
+  document.getElementById('sc-'+sc).classList.add('selected');
+}
+
+const CHARGES_DEFAULT = 5800;
+function fmt(n) { return Math.round(n).toLocaleString('fr-BE') + ' €'; }
+function fmtK(n) { return Math.round(n/1000) + ' k€'; }
+function pmt(P, r, n) { if (!r) return P/n; return P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1); }
+
+function updateRecettes() {
+  const loyer = +document.getElementById('r-loyer').value;
+  const vac   = +document.getElementById('r-vac').value;
+  const chg   = +document.getElementById('r-charges').value;
+  document.getElementById('r-loyer-out').textContent   = loyer.toLocaleString('fr-BE') + ' €';
+  document.getElementById('r-vac-out').textContent     = vac + ' %';
+  document.getElementById('r-charges-out').textContent = chg.toLocaleString('fr-BE') + ' €';
+  const brut = loyer * 4 * 12;
+  const vacE = Math.round(brut * vac / 100);
+  const net  = brut - vacE;
+  const dispo= net - chg;
+  document.getElementById('rec-brut').textContent  = fmt(brut);
+  document.getElementById('rec-vac').textContent   = '− ' + fmt(vacE);
+  document.getElementById('rec-charg').textContent = '− ' + fmt(chg);
+  document.getElementById('rec-dispo').textContent = fmt(dispo);
+  document.getElementById('rec-dispo-sub').textContent = '~ ' + fmt(dispo/12) + '/mois';
+}
+
+function updateFin() {
+  const tot  = +document.getElementById('f-tot').value;
+  const apPct= +document.getElementById('f-ap').value;
+  const tx   = +document.getElementById('f-tx').value;
+  const dur  = +document.getElementById('f-dur').value;
+  document.getElementById('f-tot-out').textContent = tot.toLocaleString('fr-BE') + ' €';
+  document.getElementById('f-ap-out').textContent  = apPct + ' %';
+  document.getElementById('f-tx-out').textContent  = tx.toFixed(1) + ' %';
+  document.getElementById('f-dur-out').textContent = dur + ' ans';
+  const ap   = Math.round(tot * apPct / 100);
+  const emp  = tot - ap;
+  const r    = tx / 100 / 12;
+  const n    = dur * 12;
+  const m    = pmt(emp, r, n);
+  const ann  = m * 12;
+  const inte = ann * dur - emp;
+  document.getElementById('fin-apport').textContent = fmt(ap);
+  document.getElementById('fin-apport-sub').textContent = apPct + ' %';
+  document.getElementById('fin-emp').textContent    = fmt(emp);
+  document.getElementById('fin-men').textContent    = fmt(m);
+  document.getElementById('fin-ann').textContent    = fmt(ann) + '/an';
+  document.getElementById('fin-int').textContent    = fmtK(inte);
+
+  const loyer  = +(document.getElementById('r-loyer') ? document.getElementById('r-loyer').value : 850);
+  const vac    = +(document.getElementById('r-vac')   ? document.getElementById('r-vac').value   : 5);
+  const chg    = +(document.getElementById('r-charges')? document.getElementById('r-charges').value : CHARGES_DEFAULT);
+  const rev    = loyer * 4 * 12 * (1 - vac/100) - chg;
+  const marge  = rev - ann;
+  const pct    = Math.round(marge / rev * 100);
+  const dscr   = rev / ann;
+
+  const verd = document.getElementById('fin-verdict');
+  const dscrEl = document.getElementById('fin-dscr');
+  dscrEl.textContent = 'DSCR : ' + dscr.toFixed(2) + ' — seuil bancaire habituel ≥ 1,20';
+  dscrEl.className = dscr >= 1.20 ? 'alert alert-good' : 'alert alert-warn';
+  if (marge > 0 && pct >= 10) {
+    verd.className = 'alert alert-good';
+    verd.innerHTML = '✓ Autofinancé — marge de <strong>' + pct + ' %</strong> soit <strong>' + fmt(marge) + '/an</strong> après service de la dette';
+  } else if (marge > 0) {
+    verd.className = 'alert alert-warn';
+    verd.innerHTML = '⚠ Positif mais marge <strong>' + pct + ' %</strong> — objectif 10 % non atteint avec ces paramètres';
+  } else {
+    verd.className = 'alert alert-bad';
+    verd.innerHTML = '✗ Déficit de <strong>' + fmt(Math.abs(marge)) + '/an</strong> — ajuster le loyer, réduire le coût ou allonger la durée';
+  }
+}
+
+updateRecettes();
+updateFin();
+</script>
+</body>
+</html>
