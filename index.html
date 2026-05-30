@@ -627,17 +627,17 @@
   <h3>Studios existants — immeuble principal (3 logements)</h3>
   <div class="controls">
     <div class="ctrl-row">
-      <span class="ctrl-label">Studio existant A</span>
+      <span class="ctrl-label">Studio exist. 1</span>
       <input type="range" min="500" max="1200" step="25" value="800" id="e-loyer-1" oninput="updateRecettes()">
       <span class="ctrl-val" id="e-loyer-1-out">800 €</span>
     </div>
     <div class="ctrl-row">
-      <span class="ctrl-label">Studio existant B</span>
+      <span class="ctrl-label">Studio exist. 2</span>
       <input type="range" min="500" max="1200" step="25" value="800" id="e-loyer-2" oninput="updateRecettes()">
       <span class="ctrl-val" id="e-loyer-2-out">800 €</span>
     </div>
     <div class="ctrl-row">
-      <span class="ctrl-label">Studio existant C</span>
+      <span class="ctrl-label">Studio exist. 3</span>
       <input type="range" min="500" max="1200" step="25" value="800" id="e-loyer-3" oninput="updateRecettes()">
       <span class="ctrl-val" id="e-loyer-3-out">800 €</span>
     </div>
@@ -646,12 +646,12 @@
     <div class="card">
       <div class="card-label">Loyer brut existant / an</div>
       <div class="card-value" id="rec-exist-brut">28 800 €</div>
-      <div class="card-sub">3 studios × 800 € × 12</div>
+      <div class="card-sub" id="rec-exist-brut-sub">3 studios</div>
     </div>
     <div class="card">
       <div class="card-label">Revenu net existant / an</div>
       <div class="card-value" id="rec-exist-net">25 560 €</div>
-      <div class="card-sub">après vacance 5 % + charges estimées</div>
+      <div class="card-sub">après vacance + charges</div>
     </div>
   </div>
 
@@ -659,11 +659,26 @@
   <h3>Studios neufs — bâtiment annexe (4 logements)</h3>
   <div class="controls">
     <div class="ctrl-row">
-      <span class="ctrl-label">Loyer mensuel / studio neuf</span>
-      <input type="range" min="650" max="1100" step="25" value="850" id="r-loyer" oninput="updateRecettes()">
-      <span class="ctrl-val" id="r-loyer-out">850 €</span>
+      <span class="ctrl-label">Studio neuf 1</span>
+      <input type="range" min="500" max="1200" step="25" value="850" id="r-loyer-1" oninput="updateRecettes()">
+      <span class="ctrl-val" id="r-loyer-1-out">850 €</span>
     </div>
     <div class="ctrl-row">
+      <span class="ctrl-label">Studio neuf 2</span>
+      <input type="range" min="500" max="1200" step="25" value="850" id="r-loyer-2" oninput="updateRecettes()">
+      <span class="ctrl-val" id="r-loyer-2-out">850 €</span>
+    </div>
+    <div class="ctrl-row">
+      <span class="ctrl-label">Studio neuf 3</span>
+      <input type="range" min="500" max="1200" step="25" value="850" id="r-loyer-3" oninput="updateRecettes()">
+      <span class="ctrl-val" id="r-loyer-3-out">850 €</span>
+    </div>
+    <div class="ctrl-row">
+      <span class="ctrl-label">Studio neuf 4</span>
+      <input type="range" min="500" max="1200" step="25" value="850" id="r-loyer-4" oninput="updateRecettes()">
+      <span class="ctrl-val" id="r-loyer-4-out">850 €</span>
+    </div>
+    <div class="ctrl-row" style="margin-top:0.5rem; border-top: 1px solid var(--gris-xl); padding-top:0.75rem;">
       <span class="ctrl-label">Taux de vacance global</span>
       <input type="range" min="2" max="15" step="1" value="5" id="r-vac" oninput="updateRecettes()">
       <span class="ctrl-val" id="r-vac-out">5 %</span>
@@ -863,41 +878,51 @@ function getExistingRev(vac) {
 }
 
 function updateRecettes() {
-  const e1  = +document.getElementById('e-loyer-1').value;
-  const e2  = +document.getElementById('e-loyer-2').value;
-  const e3  = +document.getElementById('e-loyer-3').value;
+  // Existants
+  const e1 = +document.getElementById('e-loyer-1').value;
+  const e2 = +document.getElementById('e-loyer-2').value;
+  const e3 = +document.getElementById('e-loyer-3').value;
   document.getElementById('e-loyer-1-out').textContent = e1.toLocaleString('fr-BE') + ' €';
   document.getElementById('e-loyer-2-out').textContent = e2.toLocaleString('fr-BE') + ' €';
   document.getElementById('e-loyer-3-out').textContent = e3.toLocaleString('fr-BE') + ' €';
 
-  const loyer = +document.getElementById('r-loyer').value;
-  const vac   = +document.getElementById('r-vac').value;
-  const chg   = +document.getElementById('r-charges').value;
-  document.getElementById('r-loyer-out').textContent   = loyer.toLocaleString('fr-BE') + ' €';
+  // Neufs
+  const n1 = +document.getElementById('r-loyer-1').value;
+  const n2 = +document.getElementById('r-loyer-2').value;
+  const n3 = +document.getElementById('r-loyer-3').value;
+  const n4 = +document.getElementById('r-loyer-4').value;
+  document.getElementById('r-loyer-1-out').textContent = n1.toLocaleString('fr-BE') + ' €';
+  document.getElementById('r-loyer-2-out').textContent = n2.toLocaleString('fr-BE') + ' €';
+  document.getElementById('r-loyer-3-out').textContent = n3.toLocaleString('fr-BE') + ' €';
+  document.getElementById('r-loyer-4-out').textContent = n4.toLocaleString('fr-BE') + ' €';
+
+  const vac = +document.getElementById('r-vac').value;
+  const chg = +document.getElementById('r-charges').value;
   document.getElementById('r-vac-out').textContent     = vac + ' %';
   document.getElementById('r-charges-out').textContent = chg.toLocaleString('fr-BE') + ' €';
 
-  // Existants
   const brutExist = (e1 + e2 + e3) * 12;
-  const netExist  = Math.round(brutExist * (1 - vac/100) - chg * 0.43); // ~43% des charges pour 3/7 logements
-  document.getElementById('rec-exist-brut').textContent = fmt(brutExist);
-  document.getElementById('rec-exist-net').textContent  = fmt(netExist);
-  document.getElementById('rec-exist-net2').textContent = fmt(netExist);
-
-  // Neufs
-  const brutNeuf = loyer * 4 * 12;
-  const netNeuf  = Math.round(brutNeuf * (1 - vac/100) - chg * 0.57); // ~57% pour 4/7 logements
-  document.getElementById('rec-neuf-net').textContent = fmt(netNeuf);
-
-  // Global
+  const brutNeuf  = (n1 + n2 + n3 + n4) * 12;
   const brutTotal = brutExist + brutNeuf;
   const vacTotal  = Math.round(brutTotal * vac / 100);
   const dispo     = brutTotal - vacTotal - chg;
-  document.getElementById('rec-brut').textContent     = fmt(brutTotal);
-  document.getElementById('rec-brut-sub').textContent = '3 existants (' + fmt((e1+e2+e3)*12) + ') + 4 neufs (' + fmt(brutNeuf) + ')';
-  document.getElementById('rec-vac').textContent      = '− ' + fmt(vacTotal);
-  document.getElementById('rec-charg').textContent    = '− ' + fmt(chg);
-  document.getElementById('rec-dispo').textContent    = fmt(dispo);
+
+  // Répartition proportionnelle des charges
+  const ratioExist = brutExist / brutTotal;
+  const netExist   = Math.round(brutExist * (1 - vac/100) - chg * ratioExist);
+  const netNeuf    = Math.round(brutNeuf  * (1 - vac/100) - chg * (1 - ratioExist));
+
+  document.getElementById('rec-exist-brut').textContent     = fmt(brutExist);
+  document.getElementById('rec-exist-brut-sub').textContent = e1 + ' + ' + e2 + ' + ' + e3 + ' € × 12';
+  document.getElementById('rec-exist-net').textContent      = fmt(netExist);
+  document.getElementById('rec-exist-net2').textContent     = fmt(netExist);
+  document.getElementById('rec-neuf-net').textContent       = fmt(netNeuf);
+
+  document.getElementById('rec-brut').textContent      = fmt(brutTotal);
+  document.getElementById('rec-brut-sub').textContent  = fmt(brutExist) + ' exist. + ' + fmt(brutNeuf) + ' neufs';
+  document.getElementById('rec-vac').textContent       = '− ' + fmt(vacTotal);
+  document.getElementById('rec-charg').textContent     = '− ' + fmt(chg);
+  document.getElementById('rec-dispo').textContent     = fmt(dispo);
   document.getElementById('rec-dispo-sub').textContent = '~ ' + fmt(dispo/12) + '/mois';
 }
 
@@ -910,35 +935,40 @@ function updateFin() {
   document.getElementById('f-ap-out').textContent  = apPct + ' %';
   document.getElementById('f-tx-out').textContent  = tx.toFixed(1) + ' %';
   document.getElementById('f-dur-out').textContent = dur + ' ans';
-  const ap   = Math.round(tot * apPct / 100);
-  const emp  = tot - ap;
-  const r    = tx / 100 / 12;
-  const n    = dur * 12;
-  const m    = pmt(emp, r, n);
-  const ann  = m * 12;
-  const inte = ann * dur - emp;
-  document.getElementById('fin-apport').textContent = fmt(ap);
+  const ap  = Math.round(tot * apPct / 100);
+  const emp = tot - ap;
+  const r   = tx / 100 / 12;
+  const n   = dur * 12;
+  const m   = pmt(emp, r, n);
+  const ann = m * 12;
+  const inte= ann * dur - emp;
+  document.getElementById('fin-apport').textContent     = fmt(ap);
   document.getElementById('fin-apport-sub').textContent = apPct + ' %';
-  document.getElementById('fin-emp').textContent    = fmt(emp);
-  document.getElementById('fin-men').textContent    = fmt(m);
-  document.getElementById('fin-ann').textContent    = fmt(ann) + '/an';
-  document.getElementById('fin-int').textContent    = fmtK(inte);
+  document.getElementById('fin-emp').textContent = fmt(emp);
+  document.getElementById('fin-men').textContent = fmt(m);
+  document.getElementById('fin-ann').textContent = fmt(ann) + '/an';
+  document.getElementById('fin-int').textContent = fmtK(inte);
 
-  // Revenus de référence = neufs seuls pour couvrir la dette (projet autonome)
-  const loyer  = +(document.getElementById('r-loyer') ? document.getElementById('r-loyer').value : 850);
-  const vac    = +(document.getElementById('r-vac')   ? document.getElementById('r-vac').value   : 5);
-  const chg    = +(document.getElementById('r-charges')? document.getElementById('r-charges').value : 10000);
-  const revNeuf = loyer * 4 * 12 * (1 - vac/100) - chg * 0.57;
-
-  // Revenus totaux pour DSCR global
+  // Revenus neufs seuls
+  const n1 = +(document.getElementById('r-loyer-1') ? document.getElementById('r-loyer-1').value : 850);
+  const n2 = +(document.getElementById('r-loyer-2') ? document.getElementById('r-loyer-2').value : 850);
+  const n3 = +(document.getElementById('r-loyer-3') ? document.getElementById('r-loyer-3').value : 850);
+  const n4 = +(document.getElementById('r-loyer-4') ? document.getElementById('r-loyer-4').value : 850);
   const e1 = +(document.getElementById('e-loyer-1') ? document.getElementById('e-loyer-1').value : 800);
   const e2 = +(document.getElementById('e-loyer-2') ? document.getElementById('e-loyer-2').value : 800);
   const e3 = +(document.getElementById('e-loyer-3') ? document.getElementById('e-loyer-3').value : 800);
-  const revTotal = (loyer*4 + e1+e2+e3)*12*(1-vac/100) - chg;
+  const vac = +(document.getElementById('r-vac')    ? document.getElementById('r-vac').value    : 5);
+  const chg = +(document.getElementById('r-charges')? document.getElementById('r-charges').value: 10000);
+
+  const brutNeuf  = (n1+n2+n3+n4)*12;
+  const brutTotal = brutNeuf + (e1+e2+e3)*12;
+  const ratioNeuf = brutNeuf / brutTotal;
+  const revNeuf   = brutNeuf  * (1-vac/100) - chg * ratioNeuf;
+  const revTotal  = brutTotal * (1-vac/100) - chg;
 
   const margeNeuf = revNeuf - ann;
   const pct       = Math.round(margeNeuf / revNeuf * 100);
-  const dscrNeuf  = revNeuf / ann;
+  const dscrNeuf  = revNeuf  / ann;
   const dscrTotal = revTotal / ann;
 
   const verd   = document.getElementById('fin-verdict');
