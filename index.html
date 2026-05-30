@@ -759,8 +759,8 @@
     </div>
     <div class="ctrl-row">
       <span class="ctrl-label">Apport fonds propres</span>
-      <input type="range" min="0" max="40" step="5" value="0" id="f-ap" oninput="updateFin()">
-      <span class="ctrl-val" id="f-ap-out">0 %</span>
+      <input type="range" min="0" max="50000" step="1000" value="0" id="f-ap" oninput="updateFin()">
+      <span class="ctrl-val" id="f-ap-out">0 €</span>
     </div>
     <div class="ctrl-row">
       <span class="ctrl-label">Taux d'intérêt fixe</span>
@@ -769,7 +769,7 @@
     </div>
     <div class="ctrl-row">
       <span class="ctrl-label">Durée du prêt</span>
-      <input type="range" min="10" max="25" step="5" value="20" id="f-dur" oninput="updateFin()">
+      <input type="range" min="10" max="30" step="1" value="20" id="f-dur" oninput="updateFin()">
       <span class="ctrl-val" id="f-dur-out">20 ans</span>
     </div>
   </div>
@@ -937,22 +937,22 @@ function updateRecettes() {
 
 function updateFin() {
   const tot  = +document.getElementById('f-tot').value;
-  const apPct= +document.getElementById('f-ap').value;
+  const ap   = +document.getElementById('f-ap').value;
   const tx   = +document.getElementById('f-tx').value;
   const dur  = +document.getElementById('f-dur').value;
   document.getElementById('f-tot-out').textContent = tot.toLocaleString('fr-BE') + ' €';
-  document.getElementById('f-ap-out').textContent  = apPct + ' %';
+  document.getElementById('f-ap-out').textContent  = ap.toLocaleString('fr-BE') + ' €';
   document.getElementById('f-tx-out').textContent  = tx.toFixed(1) + ' %';
   document.getElementById('f-dur-out').textContent = dur + ' ans';
-  const ap  = Math.round(tot * apPct / 100);
   const emp = tot - ap;
   const r   = tx / 100 / 12;
   const n   = dur * 12;
   const m   = pmt(emp, r, n);
   const ann = m * 12;
   const inte= ann * dur - emp;
+  const apPct = tot > 0 ? Math.round(ap / tot * 100) : 0;
   document.getElementById('fin-apport').textContent     = fmt(ap);
-  document.getElementById('fin-apport-sub').textContent = apPct + ' %';
+  document.getElementById('fin-apport-sub').textContent = apPct + ' % du total';
   document.getElementById('fin-emp').textContent = fmt(emp);
   document.getElementById('fin-men').textContent = fmt(m);
   document.getElementById('fin-ann').textContent = fmt(ann) + '/an';
