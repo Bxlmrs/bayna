@@ -623,54 +623,102 @@
   <div class="section-eyebrow">Revenus locatifs</div>
   <h2>Recettes annuelles projetées</h2>
 
+  <!-- STUDIOS EXISTANTS -->
+  <h3>Studios existants — immeuble principal (3 logements)</h3>
   <div class="controls">
     <div class="ctrl-row">
-      <span class="ctrl-label">Loyer mensuel / studio</span>
+      <span class="ctrl-label">Studio existant A</span>
+      <input type="range" min="500" max="1200" step="25" value="800" id="e-loyer-1" oninput="updateRecettes()">
+      <span class="ctrl-val" id="e-loyer-1-out">800 €</span>
+    </div>
+    <div class="ctrl-row">
+      <span class="ctrl-label">Studio existant B</span>
+      <input type="range" min="500" max="1200" step="25" value="800" id="e-loyer-2" oninput="updateRecettes()">
+      <span class="ctrl-val" id="e-loyer-2-out">800 €</span>
+    </div>
+    <div class="ctrl-row">
+      <span class="ctrl-label">Studio existant C</span>
+      <input type="range" min="500" max="1200" step="25" value="800" id="e-loyer-3" oninput="updateRecettes()">
+      <span class="ctrl-val" id="e-loyer-3-out">800 €</span>
+    </div>
+  </div>
+  <div class="metrics metrics-2" style="margin-bottom:2rem;">
+    <div class="card">
+      <div class="card-label">Loyer brut existant / an</div>
+      <div class="card-value" id="rec-exist-brut">28 800 €</div>
+      <div class="card-sub">3 studios × 800 € × 12</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Revenu net existant / an</div>
+      <div class="card-value" id="rec-exist-net">25 560 €</div>
+      <div class="card-sub">après vacance 5 % + charges estimées</div>
+    </div>
+  </div>
+
+  <!-- STUDIOS NEUFS -->
+  <h3>Studios neufs — bâtiment annexe (4 logements)</h3>
+  <div class="controls">
+    <div class="ctrl-row">
+      <span class="ctrl-label">Loyer mensuel / studio neuf</span>
       <input type="range" min="650" max="1100" step="25" value="850" id="r-loyer" oninput="updateRecettes()">
       <span class="ctrl-val" id="r-loyer-out">850 €</span>
     </div>
     <div class="ctrl-row">
-      <span class="ctrl-label">Taux de vacance</span>
+      <span class="ctrl-label">Taux de vacance global</span>
       <input type="range" min="2" max="15" step="1" value="5" id="r-vac" oninput="updateRecettes()">
       <span class="ctrl-val" id="r-vac-out">5 %</span>
     </div>
     <div class="ctrl-row">
-      <span class="ctrl-label">Charges propr. / an</span>
-      <input type="range" min="3000" max="12000" step="500" value="5800" id="r-charges" oninput="updateRecettes()">
-      <span class="ctrl-val" id="r-charges-out">5 800 €</span>
+      <span class="ctrl-label">Charges propr. globales / an</span>
+      <input type="range" min="5000" max="20000" step="500" value="10000" id="r-charges" oninput="updateRecettes()">
+      <span class="ctrl-val" id="r-charges-out">10 000 €</span>
     </div>
   </div>
 
-  <div class="metrics metrics-4" id="rec-metrics">
+  <!-- SYNTHÈSE GLOBALE -->
+  <h3>Synthèse — patrimoine total (7 logements)</h3>
+  <div class="metrics metrics-4">
     <div class="card">
-      <div class="card-label">Loyer brut annuel</div>
-      <div class="card-value" id="rec-brut">40 800 €</div>
-      <div class="card-sub">4 × 850 € × 12</div>
+      <div class="card-label">Loyer brut total / an</div>
+      <div class="card-value" id="rec-brut">69 600 €</div>
+      <div class="card-sub" id="rec-brut-sub">3 existants + 4 neufs</div>
     </div>
     <div class="card">
       <div class="card-label">Perte vacance</div>
-      <div class="card-value" id="rec-vac">− 2 040 €</div>
-      <div class="card-sub">5 % du brut</div>
+      <div class="card-value" id="rec-vac">− 3 480 €</div>
+      <div class="card-sub">5 % du brut total</div>
     </div>
     <div class="card">
       <div class="card-label">Charges propriétaire</div>
-      <div class="card-value" id="rec-charg">− 5 800 €</div>
+      <div class="card-value" id="rec-charg">− 10 000 €</div>
       <div class="card-sub">assur. + PrI + entretien</div>
     </div>
     <div class="card accent">
-      <div class="card-label">Revenu disponible / an</div>
-      <div class="card-value" id="rec-dispo">32 960 €</div>
-      <div class="card-sub" id="rec-dispo-sub">~ 2 747 €/mois</div>
+      <div class="card-label">Revenu disponible total / an</div>
+      <div class="card-value" id="rec-dispo">56 120 €</div>
+      <div class="card-sub" id="rec-dispo-sub">~ 4 677 €/mois</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
+    <div class="card good">
+      <div class="card-label">dont annex neuf seul / an</div>
+      <div class="card-value good" id="rec-neuf-net">32 560 €</div>
+      <div class="card-sub">sert à couvrir la dette</div>
+    </div>
+    <div class="card">
+      <div class="card-label">dont existant seul / an</div>
+      <div class="card-value" id="rec-exist-net2">23 560 €</div>
+      <div class="card-sub">revenus pré-existants</div>
     </div>
   </div>
 
   <div class="note-block">
-    <strong>Marché locatif Saint-Gilles 2025–2026 :</strong> un studio neuf BBC de 40 m² chaussée de Waterloo se positionne entre 800 € et 1 000 €/mois.
-    La valeur de 850 € est prudente ; 900–950 € est raisonnable pour un logement neuf labellisé BBC avec PEB A–B.
+    <strong>Studios existants :</strong> les 3 studios de l'immeuble principal (cage d'escalier existante) génèrent un revenu locatif indépendant du projet neuf. Leur loyer par défaut est fixé à 800 €/mois — à ajuster selon les baux en cours.
     <br><br>
-    <strong>Charges propriétaire incluses :</strong> assurance immeuble (~1 500 €/an) · précompte immobilier (~1 800 €/an) · entretien courant (~1 500 €/an) · gestion locative agence si applicable (~1 000 €/an).
+    <strong>Studios neufs :</strong> BBC ossature bois, PEB A–B, Saint-Gilles — fourchette réaliste 800–1 000 €/mois. La valeur 850 € est prudente.
     <br><br>
-    <strong>Fiscalité :</strong> revenus locatifs imposables en IPP sur la base du revenu cadastral indexé × 1,4 (si logement non-meublé). Optimisation possible via société de gestion — à valider avec le comptable.
+    <strong>Charges globales :</strong> assurance immeuble + assurance annexe · précompte immobilier · entretien courant · gestion locative. Le montant par défaut de 10 000 €/an couvre les 7 logements.
   </div>
 </div>
 
@@ -802,26 +850,54 @@ function selectScenario(sc) {
   document.getElementById('sc-'+sc).classList.add('selected');
 }
 
-const CHARGES_DEFAULT = 5800;
 function fmt(n) { return Math.round(n).toLocaleString('fr-BE') + ' €'; }
 function fmtK(n) { return Math.round(n/1000) + ' k€'; }
 function pmt(P, r, n) { if (!r) return P/n; return P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1); }
 
+function getExistingRev(vac) {
+  const e1 = +(document.getElementById('e-loyer-1') ? document.getElementById('e-loyer-1').value : 800);
+  const e2 = +(document.getElementById('e-loyer-2') ? document.getElementById('e-loyer-2').value : 800);
+  const e3 = +(document.getElementById('e-loyer-3') ? document.getElementById('e-loyer-3').value : 800);
+  const brutExist = (e1 + e2 + e3) * 12;
+  return brutExist * (1 - vac/100);
+}
+
 function updateRecettes() {
+  const e1  = +document.getElementById('e-loyer-1').value;
+  const e2  = +document.getElementById('e-loyer-2').value;
+  const e3  = +document.getElementById('e-loyer-3').value;
+  document.getElementById('e-loyer-1-out').textContent = e1.toLocaleString('fr-BE') + ' €';
+  document.getElementById('e-loyer-2-out').textContent = e2.toLocaleString('fr-BE') + ' €';
+  document.getElementById('e-loyer-3-out').textContent = e3.toLocaleString('fr-BE') + ' €';
+
   const loyer = +document.getElementById('r-loyer').value;
   const vac   = +document.getElementById('r-vac').value;
   const chg   = +document.getElementById('r-charges').value;
   document.getElementById('r-loyer-out').textContent   = loyer.toLocaleString('fr-BE') + ' €';
   document.getElementById('r-vac-out').textContent     = vac + ' %';
   document.getElementById('r-charges-out').textContent = chg.toLocaleString('fr-BE') + ' €';
-  const brut = loyer * 4 * 12;
-  const vacE = Math.round(brut * vac / 100);
-  const net  = brut - vacE;
-  const dispo= net - chg;
-  document.getElementById('rec-brut').textContent  = fmt(brut);
-  document.getElementById('rec-vac').textContent   = '− ' + fmt(vacE);
-  document.getElementById('rec-charg').textContent = '− ' + fmt(chg);
-  document.getElementById('rec-dispo').textContent = fmt(dispo);
+
+  // Existants
+  const brutExist = (e1 + e2 + e3) * 12;
+  const netExist  = Math.round(brutExist * (1 - vac/100) - chg * 0.43); // ~43% des charges pour 3/7 logements
+  document.getElementById('rec-exist-brut').textContent = fmt(brutExist);
+  document.getElementById('rec-exist-net').textContent  = fmt(netExist);
+  document.getElementById('rec-exist-net2').textContent = fmt(netExist);
+
+  // Neufs
+  const brutNeuf = loyer * 4 * 12;
+  const netNeuf  = Math.round(brutNeuf * (1 - vac/100) - chg * 0.57); // ~57% pour 4/7 logements
+  document.getElementById('rec-neuf-net').textContent = fmt(netNeuf);
+
+  // Global
+  const brutTotal = brutExist + brutNeuf;
+  const vacTotal  = Math.round(brutTotal * vac / 100);
+  const dispo     = brutTotal - vacTotal - chg;
+  document.getElementById('rec-brut').textContent     = fmt(brutTotal);
+  document.getElementById('rec-brut-sub').textContent = '3 existants (' + fmt((e1+e2+e3)*12) + ') + 4 neufs (' + fmt(brutNeuf) + ')';
+  document.getElementById('rec-vac').textContent      = '− ' + fmt(vacTotal);
+  document.getElementById('rec-charg').textContent    = '− ' + fmt(chg);
+  document.getElementById('rec-dispo').textContent    = fmt(dispo);
   document.getElementById('rec-dispo-sub').textContent = '~ ' + fmt(dispo/12) + '/mois';
 }
 
@@ -848,27 +924,36 @@ function updateFin() {
   document.getElementById('fin-ann').textContent    = fmt(ann) + '/an';
   document.getElementById('fin-int').textContent    = fmtK(inte);
 
+  // Revenus de référence = neufs seuls pour couvrir la dette (projet autonome)
   const loyer  = +(document.getElementById('r-loyer') ? document.getElementById('r-loyer').value : 850);
   const vac    = +(document.getElementById('r-vac')   ? document.getElementById('r-vac').value   : 5);
-  const chg    = +(document.getElementById('r-charges')? document.getElementById('r-charges').value : CHARGES_DEFAULT);
-  const rev    = loyer * 4 * 12 * (1 - vac/100) - chg;
-  const marge  = rev - ann;
-  const pct    = Math.round(marge / rev * 100);
-  const dscr   = rev / ann;
+  const chg    = +(document.getElementById('r-charges')? document.getElementById('r-charges').value : 10000);
+  const revNeuf = loyer * 4 * 12 * (1 - vac/100) - chg * 0.57;
 
-  const verd = document.getElementById('fin-verdict');
+  // Revenus totaux pour DSCR global
+  const e1 = +(document.getElementById('e-loyer-1') ? document.getElementById('e-loyer-1').value : 800);
+  const e2 = +(document.getElementById('e-loyer-2') ? document.getElementById('e-loyer-2').value : 800);
+  const e3 = +(document.getElementById('e-loyer-3') ? document.getElementById('e-loyer-3').value : 800);
+  const revTotal = (loyer*4 + e1+e2+e3)*12*(1-vac/100) - chg;
+
+  const margeNeuf = revNeuf - ann;
+  const pct       = Math.round(margeNeuf / revNeuf * 100);
+  const dscrNeuf  = revNeuf / ann;
+  const dscrTotal = revTotal / ann;
+
+  const verd   = document.getElementById('fin-verdict');
   const dscrEl = document.getElementById('fin-dscr');
-  dscrEl.textContent = 'DSCR : ' + dscr.toFixed(2) + ' — seuil bancaire habituel ≥ 1,20';
-  dscrEl.className = dscr >= 1.20 ? 'alert alert-good' : 'alert alert-warn';
-  if (marge > 0 && pct >= 10) {
+  dscrEl.innerHTML = 'DSCR annexe seule : <strong>' + dscrNeuf.toFixed(2) + '</strong> · DSCR patrimoine total : <strong>' + dscrTotal.toFixed(2) + '</strong> (seuil bancaire ≥ 1,20)';
+  dscrEl.className = dscrNeuf >= 1.20 ? 'alert alert-good' : dscrTotal >= 1.20 ? 'alert alert-warn' : 'alert alert-bad';
+  if (margeNeuf > 0 && pct >= 10) {
     verd.className = 'alert alert-good';
-    verd.innerHTML = '✓ Autofinancé — marge de <strong>' + pct + ' %</strong> soit <strong>' + fmt(marge) + '/an</strong> après service de la dette';
-  } else if (marge > 0) {
+    verd.innerHTML = '✓ Projet neuf autofinancé — marge de <strong>' + pct + ' %</strong> soit <strong>' + fmt(margeNeuf) + '/an</strong> sur les seuls loyers de l\'annexe';
+  } else if (margeNeuf > 0) {
     verd.className = 'alert alert-warn';
-    verd.innerHTML = '⚠ Positif mais marge <strong>' + pct + ' %</strong> — objectif 10 % non atteint avec ces paramètres';
+    verd.innerHTML = '⚠ Positif mais marge <strong>' + pct + ' %</strong> sur l\'annexe seule — patrimoine global couvre la dette (DSCR ' + dscrTotal.toFixed(2) + ')';
   } else {
     verd.className = 'alert alert-bad';
-    verd.innerHTML = '✗ Déficit de <strong>' + fmt(Math.abs(marge)) + '/an</strong> — ajuster le loyer, réduire le coût ou allonger la durée';
+    verd.innerHTML = '✗ Déficit de <strong>' + fmt(Math.abs(margeNeuf)) + '/an</strong> sur l\'annexe seule — les studios existants compensent (DSCR total ' + dscrTotal.toFixed(2) + ')';
   }
 }
 
