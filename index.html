@@ -446,7 +446,7 @@
     <div><dt>Maître d'ouvrage</dt><dd>Mme Majda Bayna</dd></div>
     <div><dt>Architecte</dt><dd>BXLMRS / L. Bousquet</dd></div>
     <div><dt>Surface neuve</dt><dd>200 m² SBP</dd></div>
-    <div><dt>Logements</dt><dd>4 studios ~40 m²</dd></div>
+    <div><dt>Patrimoine</dt><dd>7 studios + pharmacie</dd></div>
     <div><dt>Structure</dt><dd>Ossature bois caissons</dd></div>
   </dl>
 </header>
@@ -482,9 +482,9 @@
       <div class="scenario-row"><span>Total HTVA</span><span id="sp-htva">226 k€</span></div>
       <div class="scenario-row"><span>Total TVAC</span><span id="sp-tvac">274 k€</span></div>
       <div class="scenario-row"><span>Loyer mensuel /studio</span><span>800 €</span></div>
-      <div class="scenario-row"><span>Revenu net annuel</span><span>34 960 €</span></div>
-      <div class="scenario-row"><span>Annuité (20 ans, 3.8 %)</span><span>16 392 €</span></div>
-      <div class="scenario-result result-good">Marge +113 % · DSCR 2.13</div>
+      <div class="scenario-row"><span>Revenu net annexe /an</span><span>34 980 €</span></div>
+      <div class="scenario-row"><span>Annuité (100 % TVAC, 20 ans, 3.8 %)</span><span>19 580 €</span></div>
+      <div class="scenario-result result-good">Marge annexe +44 % · DSCR 1.79</div>
     </div>
 
     <!-- MÉDIAN -->
@@ -498,9 +498,9 @@
       <div class="scenario-row"><span>Total HTVA</span><span>310 k€</span></div>
       <div class="scenario-row"><span>Total TVAC</span><span>375 k€</span></div>
       <div class="scenario-row"><span>Loyer mensuel /studio</span><span>850 €</span></div>
-      <div class="scenario-row"><span>Revenu net annuel</span><span>36 760 €</span></div>
-      <div class="scenario-row"><span>Annuité (20 ans, 3.8 %)</span><span>22 425 €</span></div>
-      <div class="scenario-result result-good">Marge +64 % · DSCR 1.64</div>
+      <div class="scenario-row"><span>Revenu net annexe /an</span><span>37 260 €</span></div>
+      <div class="scenario-row"><span>Annuité (100 % TVAC, 20 ans, 3.8 %)</span><span>26 797 €</span></div>
+      <div class="scenario-result result-good">Marge annexe +28 % · DSCR 1.39</div>
     </div>
 
     <!-- HAUT -->
@@ -514,9 +514,9 @@
       <div class="scenario-row"><span>Total HTVA</span><span>411 k€</span></div>
       <div class="scenario-row"><span>Total TVAC</span><span>497 k€</span></div>
       <div class="scenario-row"><span>Loyer mensuel /studio</span><span>900 €</span></div>
-      <div class="scenario-row"><span>Revenu net annuel</span><span>38 560 €</span></div>
-      <div class="scenario-row"><span>Annuité (20 ans, 3.8 %)</span><span>29 726 €</span></div>
-      <div class="scenario-result result-good">Marge +30 % · DSCR 1.30</div>
+      <div class="scenario-row"><span>Revenu net annexe /an</span><span>39 540 €</span></div>
+      <div class="scenario-row"><span>Annuité (100 % TVAC, 20 ans, 3.8 %)</span><span>35 515 €</span></div>
+      <div class="scenario-result result-warn">Marge annexe +10 % · DSCR 1.11</div>
     </div>
   </div>
 
@@ -537,16 +537,17 @@
       <div class="card-sub">loyers bruts / coût TVAC</div>
     </div>
     <div class="card good">
-      <div class="card-label">Autofinancement</div>
-      <div class="card-value good">3 scénarios</div>
-      <div class="card-sub">marge ≥ 16 % dans tous</div>
+      <div class="card-label">DSCR patrimoine médian</div>
+      <div class="card-value good">3,08</div>
+      <div class="card-sub">loyers + pharmacie / annuité</div>
     </div>
   </div>
 
   <div class="note-block">
     <strong>Lecture :</strong> les trois scénarios couvrent la fourchette basse–haute des estimations casco précédentes, avec honoraires 15 % appliqués sur les travaux HT.
-    La TVA de 21 % est celle applicable à la construction neuve en Région bruxelloise.
-    Un taux réduit de 6 % peut s'appliquer sous conditions (part résidentielle, CBL) — à vérifier avec le comptable.
+    La TVA de 21 % est celle applicable à la construction neuve en Région bruxelloise. L'annuité est calculée sur <strong>100 % du coût TVAC</strong> (financement intégral, apport 0 €) — hypothèse prudente.
+    Le « revenu net annexe » et le DSCR de la pastille couvrent les <strong>seuls 4 studios neufs</strong> ; le DSCR patrimonial ci-dessus intègre aussi les 3 studios existants et la pharmacie.
+    Un taux réduit de TVA à 6 % peut s'appliquer sous conditions (part résidentielle, CBL) — à vérifier avec le comptable.
   </div>
 </div>
 
@@ -659,9 +660,34 @@
     </div>
     <div class="card">
       <div class="card-label">Revenu net existant / an</div>
-      <div class="card-value" id="rec-exist-net">25 560 €</div>
-      <div class="card-sub">après vacance + charges</div>
+      <div class="card-value" id="rec-exist-net">25 860 €</div>
+      <div class="card-sub">après vacance 5 % − précompte 1 500 €</div>
     </div>
+  </div>
+
+  <!-- PHARMACIE -->
+  <h3>Pharmacie — rez-de-chaussée (bail commercial)</h3>
+  <div class="controls">
+    <div class="ctrl-row">
+      <span class="ctrl-label">Loyer pharmacie /mois (actuel, jusqu'en 2030)</span>
+      <input type="range" min="1000" max="4000" step="100" value="1900" id="r-pharma" oninput="updateRecettes()">
+      <span class="ctrl-val" id="r-pharma-out">1 900 €</span>
+    </div>
+  </div>
+  <div class="metrics metrics-2" style="margin-bottom:2rem;">
+    <div class="card">
+      <div class="card-label">Loyer brut pharmacie / an</div>
+      <div class="card-value" id="rec-pharma-brut">22 800 €</div>
+      <div class="card-sub" id="rec-pharma-brut-sub">1 900 € × 12</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Revenu net pharmacie / an</div>
+      <div class="card-value" id="rec-pharma-net">19 300 €</div>
+      <div class="card-sub">après précompte 3 500 € · pas de vacance (commerce)</div>
+    </div>
+  </div>
+  <div class="alert alert-good" style="margin-bottom:2rem;">
+    <strong>Dès 2030 :</strong> le loyer de la pharmacie passe à <strong>3 500 €/mois</strong> (42 000 €/an), portant le revenu disponible du patrimoine à <strong id="rec-dispo-2030">101 620 €/an</strong>.
   </div>
 
   <!-- STUDIOS NEUFS -->
@@ -688,52 +714,52 @@
       <span class="ctrl-val" id="r-loyer-4-out">850 €</span>
     </div>
     <div class="ctrl-row" style="margin-top:0.5rem; border-top: 1px solid var(--gris-xl); padding-top:0.75rem;">
-      <span class="ctrl-label">Taux de vacance global</span>
+      <span class="ctrl-label">Taux de vacance résidentiel</span>
       <input type="range" min="2" max="15" step="1" value="5" id="r-vac" oninput="updateRecettes()">
       <span class="ctrl-val" id="r-vac-out">5 %</span>
-    </div>
-    <div class="ctrl-row">
-      <span class="ctrl-label">Charges propr. globales / an</span>
-      <input type="range" min="5000" max="20000" step="500" value="10000" id="r-charges" oninput="updateRecettes()">
-      <span class="ctrl-val" id="r-charges-out">10 000 €</span>
     </div>
   </div>
 
   <!-- SYNTHÈSE GLOBALE -->
-  <h3>Synthèse — patrimoine total (7 logements)</h3>
+  <h3>Synthèse — patrimoine total (7 studios + pharmacie)</h3>
   <div class="metrics metrics-4">
     <div class="card">
       <div class="card-label">Loyer brut total / an</div>
-      <div class="card-value" id="rec-brut">69 600 €</div>
-      <div class="card-sub" id="rec-brut-sub">3 existants + 4 neufs</div>
+      <div class="card-value" id="rec-brut">92 400 €</div>
+      <div class="card-sub" id="rec-brut-sub">69 600 € studios + 22 800 € pharma</div>
     </div>
     <div class="card">
       <div class="card-label">Perte vacance</div>
       <div class="card-value" id="rec-vac">− 3 480 €</div>
-      <div class="card-sub">5 % du brut total</div>
+      <div class="card-sub">5 % des loyers résidentiels</div>
     </div>
     <div class="card">
-      <div class="card-label">Charges propriétaire</div>
-      <div class="card-value" id="rec-charg">− 10 000 €</div>
-      <div class="card-sub">assur. + PrI + entretien</div>
+      <div class="card-label">Précompte immobilier</div>
+      <div class="card-value" id="rec-charg">− 6 500 €</div>
+      <div class="card-sub">1 500 + 3 500 + 1 500 €</div>
     </div>
     <div class="card accent">
       <div class="card-label">Revenu disponible total / an</div>
-      <div class="card-value" id="rec-dispo">56 120 €</div>
-      <div class="card-sub" id="rec-dispo-sub">~ 4 677 €/mois</div>
+      <div class="card-value" id="rec-dispo">82 420 €</div>
+      <div class="card-sub" id="rec-dispo-sub">~ 6 868 €/mois</div>
     </div>
   </div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:1rem;">
     <div class="card good">
-      <div class="card-label">dont annex neuf seul / an</div>
-      <div class="card-value good" id="rec-neuf-net">32 560 €</div>
+      <div class="card-label">dont annexe neuve / an</div>
+      <div class="card-value good" id="rec-neuf-net">37 260 €</div>
       <div class="card-sub">sert à couvrir la dette</div>
     </div>
     <div class="card">
-      <div class="card-label">dont existant seul / an</div>
-      <div class="card-value" id="rec-exist-net2">23 560 €</div>
+      <div class="card-label">dont studios existants / an</div>
+      <div class="card-value" id="rec-exist-net2">25 860 €</div>
       <div class="card-sub">revenus pré-existants</div>
+    </div>
+    <div class="card">
+      <div class="card-label">dont pharmacie / an</div>
+      <div class="card-value" id="rec-pharma-net2">19 300 €</div>
+      <div class="card-sub">commerce · 42 000 € dès 2030</div>
     </div>
   </div>
 
@@ -742,7 +768,9 @@
     <br><br>
     <strong>Studios neufs :</strong> BBC ossature bois, PEB A–B, Saint-Gilles — fourchette réaliste 800–1 000 €/mois. La valeur 850 € est prudente.
     <br><br>
-    <strong>Charges globales :</strong> assurance immeuble + assurance annexe · précompte immobilier · entretien courant · gestion locative. Le montant par défaut de 10 000 €/an couvre les 7 logements.
+    <strong>Pharmacie :</strong> bail commercial au rez-de-chaussée. Loyer actuel 1 900 €/mois jusqu'en 2030, puis 3 500 €/mois. Aucune vacance prise en compte (occupation stable).
+    <br><br>
+    <strong>Charges propriétaire :</strong> le <strong>précompte immobilier</strong> est la seule charge à la charge de la propriétaire — 1 500 € (studios existants) + 3 500 € (pharmacie) + 1 500 € (annexe neuve) = <strong>6 500 €/an</strong>. Toutes les consommations (énergie, eau, communs) sont refacturées aux locataires.
   </div>
 </div>
 
@@ -755,11 +783,11 @@
     <div class="ctrl-row">
       <span class="ctrl-label">Coût total TVAC</span>
       <input type="range" min="200000" max="570000" step="5000" value="375000" id="f-tot" oninput="updateFin()">
-      <span class="ctrl-val" id="f-tot-out">452 000 €</span>
+      <span class="ctrl-val" id="f-tot-out">375 000 €</span>
     </div>
     <div class="ctrl-row">
       <span class="ctrl-label">Apport fonds propres</span>
-      <input type="range" min="0" max="50000" step="1000" value="0" id="f-ap" oninput="updateFin()">
+      <input type="range" min="0" max="120000" step="5000" value="0" id="f-ap" oninput="updateFin()">
       <span class="ctrl-val" id="f-ap-out">0 €</span>
     </div>
     <div class="ctrl-row">
@@ -776,19 +804,19 @@
 
   <div id="fin-result">
     <div class="metrics metrics-4">
-      <div class="card"><div class="card-label">Apport fonds propres</div><div class="card-value" id="fin-apport">90 400 €</div><div class="card-sub" id="fin-apport-sub">20 %</div></div>
-      <div class="card accent"><div class="card-label">Montant emprunté</div><div class="card-value" id="fin-emp">361 600 €</div><div class="card-sub">80 %</div></div>
-      <div class="card"><div class="card-label">Mensualité</div><div class="card-value" id="fin-men">2 163 €</div><div class="card-sub" id="fin-ann">25 956 €/an</div></div>
-      <div class="card"><div class="card-label">Coût total intérêts</div><div class="card-value" id="fin-int">157 k€</div><div class="card-sub">sur la durée</div></div>
+      <div class="card"><div class="card-label">Apport fonds propres</div><div class="card-value" id="fin-apport">0 €</div><div class="card-sub" id="fin-apport-sub">0 % du total</div></div>
+      <div class="card accent"><div class="card-label">Montant emprunté</div><div class="card-value" id="fin-emp">375 000 €</div><div class="card-sub">100 %</div></div>
+      <div class="card"><div class="card-label">Mensualité</div><div class="card-value" id="fin-men">2 233 €</div><div class="card-sub" id="fin-ann">26 797 €/an</div></div>
+      <div class="card"><div class="card-label">Coût total intérêts</div><div class="card-value" id="fin-int">161 k€</div><div class="card-sub">sur la durée</div></div>
     </div>
     <div id="fin-verdict" class="alert alert-good" style="margin-top:0;"></div>
     <div id="fin-dscr" class="alert alert-info" style="margin-top:0.5rem;"></div>
   </div>
 
   <div class="note-block">
-    <strong>Conditions marché belge mars 2026 :</strong> taux investissement locatif 3,5–4,5 % sur 20 ans pour profil solide · apport exigé généralement 20–30 % · garantie hypothécaire sur immeuble neuf (inscription hypothécaire ~1,3 % du capital + frais notaire ~0,5–1 %).
+    <strong>Conditions marché belge mars 2026 :</strong> taux investissement locatif 3,5–4,5 % sur 20 ans pour profil solide · apport exigé généralement 20–30 % · garantie hypothécaire sur immeuble neuf (inscription hypothécaire ~1,3 % du capital + frais notaire ~0,5–1 %). Le simulateur est calé par défaut sur un financement à <strong>100 % (apport 0 €)</strong> — tout apport améliore mécaniquement le DSCR.
     <br><br>
-    <strong>Garanties complémentaires :</strong> la banque pourra demander une hypothèque sur l'immeuble existant (110–114 chaussée de Waterloo) en garantie additionnelle. La valeur locative des 4 studios sera prise en compte dans le calcul de la quotité empruntable.
+    <strong>Garanties complémentaires :</strong> la banque pourra demander une hypothèque sur l'immeuble existant (110–114 chaussée de Waterloo) en garantie additionnelle. Les revenus locatifs des 7 studios <strong>et le loyer commercial de la pharmacie</strong> sont pris en compte dans le calcul de la quotité empruntable et du DSCR patrimonial.
   </div>
 </div>
 
@@ -811,46 +839,49 @@
       <tr><td>Coût total TVAC</td><td>274 k€</td><td>375 k€</td><td>497 k€</td></tr>
       <tr><td>Loyer mensuel / studio</td><td>800 €</td><td>850 €</td><td>900 €</td></tr>
       <tr><td>Loyer brut annuel (4 studios)</td><td>38 400 €</td><td>40 800 €</td><td>43 200 €</td></tr>
-      <tr><td>Revenu net annuel (après vacance 5 % + charges)</td><td>34 480 €</td><td>36 960 €</td><td>35 240 €</td></tr>
-      <tr><td>Annuité emprunt (100 %, 20 ans, 3.8 %)</td><td>16 392 €</td><td>22 425 €</td><td>29 726 €</td></tr>
-      <tr><td>Rendement brut</td><td>14,0 %</td><td>10,9 %</td><td>8,7 %</td></tr>
-      <tr><td>Rendement net</td><td>12,6 %</td><td>9,9 %</td><td>7,1 %</td></tr>
-      <tr><td>DSCR</td><td>2.10</td><td>1.65</td><td>1.19</td></tr>
-      <tr class="sub-total"><td>Marge après dette / an</td><td>+18 088 €</td><td>+14 535 €</td><td>+5 514 €</td></tr>
-      <tr class="sub-total"><td>Marge en % du revenu net</td><td>+52 %</td><td>+39 %</td><td>+16 %</td></tr>
+      <tr><td>Revenu net annexe (vacance 5 % − précompte 1 500 €)</td><td>34 980 €</td><td>37 260 €</td><td>39 540 €</td></tr>
+      <tr><td>Annuité emprunt (100 % TVAC, 20 ans, 3.8 %)</td><td>19 580 €</td><td>26 797 €</td><td>35 515 €</td></tr>
+      <tr><td>Rendement brut (loyers annexe / coût)</td><td>14,0 %</td><td>10,9 %</td><td>8,7 %</td></tr>
+      <tr><td>Rendement net (annexe)</td><td>12,8 %</td><td>9,9 %</td><td>8,0 %</td></tr>
+      <tr><td>DSCR annexe seule</td><td>1.79</td><td>1.39</td><td>1.11</td></tr>
+      <tr><td>DSCR patrimoine (pharmacie incl., 2026)</td><td>4.09</td><td>3.08</td><td>2.38</td></tr>
+      <tr class="sub-total"><td>Marge annexe après dette / an</td><td>+15 400 €</td><td>+10 463 €</td><td>+4 025 €</td></tr>
+      <tr class="sub-total"><td>Marge en % du revenu net annexe</td><td>+44 %</td><td>+28 %</td><td>+10 %</td></tr>
     </tbody>
   </table>
 
   <div class="metrics">
     <div class="card good">
-      <div class="card-label">Scénario prudent</div>
-      <div class="card-value good">+37 %</div>
-      <div class="card-sub">marge confortable — objectif dépassé</div>
+      <div class="card-label">Scénario prudent — annexe</div>
+      <div class="card-value good">+44 %</div>
+      <div class="card-sub">marge confortable · DSCR 1.79</div>
     </div>
     <div class="card good">
-      <div class="card-label">Scénario médian</div>
-      <div class="card-value good">+27 %</div>
-      <div class="card-sub">marge solide — référence de travail</div>
+      <div class="card-label">Scénario médian — annexe</div>
+      <div class="card-value good">+28 %</div>
+      <div class="card-sub">marge solide · DSCR 1.39</div>
     </div>
     <div class="card warn">
-      <div class="card-label">Scénario haut</div>
-      <div class="card-value warn">+5 %</div>
-      <div class="card-sub">marge insuffisante — loyer cible 950 €</div>
+      <div class="card-label">Scénario haut — annexe</div>
+      <div class="card-value warn">+10 %</div>
+      <div class="card-sub">tendu sur l'annexe seule · DSCR 1.11</div>
     </div>
   </div>
 
   <div class="alert alert-warn">
-    <strong>Scénario haut :</strong> avec un coût de 563 k€ TVAC et un loyer de 900 €, la marge est seulement de 5 % — en dessous de l'objectif 10–15 %. Pour maintenir la cible, il faut soit ramener le loyer à <strong>950 €/mois</strong> (studios ~40 m² nets de qualité), soit contenir le coût total sous <strong>500 k€ TVAC</strong>.
+    <strong>Scénario haut :</strong> à 497 k€ TVAC et 900 €/studio, l'annexe <em>seule</em> tombe à un DSCR de 1.11 (sous le seuil bancaire de 1,20) et une marge de +10 %. Pour repasser au-dessus du seuil sur l'annexe seule, il faut soit viser <strong>950 €/mois</strong>, soit contenir le coût sous <strong>460 k€ TVAC</strong>, soit apporter ~50 k€ de fonds propres.
   </div>
 
   <div class="alert alert-good">
-    <strong>Conclusion :</strong> dans les scénarios prudent et médian, le projet est solidement autofinancé avec une marge largement supérieure à l'objectif de 10–15 %. Les loyers couvrent la dette et génèrent un excédent annuel de 10 000–13 000 € servant de réserve pour les aléas.
+    <strong>Conclusion :</strong> dès qu'on raisonne au niveau du <strong>patrimoine entier</strong> (3 studios existants + 4 neufs + pharmacie), la dette du projet neuf est largement couverte dans les trois scénarios — DSCR patrimonial de <strong>2,4 à 4,1</strong> en 2026, et encore plus à partir de 2030 quand le loyer de la pharmacie passe à 3 500 €/mois (DSCR 2,9 à 5,1). Sur l'annexe seule, les scénarios prudent et médian s'autofinancent confortablement ; seul le scénario haut est tendu et mérite un apport ou un loyer cible plus élevé.
   </div>
 
   <div class="note-block">
-    <strong>DSCR (Debt Service Coverage Ratio) :</strong> rapport entre le revenu locatif net et l'annuité de la dette. Un DSCR ≥ 1,20 est généralement exigé par les banques belges pour les projets d'investissement locatif. Les scénarios prudent (1.58) et médian (1.37) satisfont largement ce critère.
+    <strong>DSCR (Debt Service Coverage Ratio) :</strong> rapport entre le revenu locatif net et l'annuité de la dette. Un DSCR ≥ 1,20 est généralement exigé par les banques belges. « DSCR annexe seule » ne compte que les 4 studios neufs ; « DSCR patrimoine » intègre les 3 studios existants et le loyer commercial de la pharmacie, sur lesquels porte aussi la garantie hypothécaire.
     <br><br>
-    <strong>Sensibilité :</strong> chaque 50 €/mois de loyer supplémentaire génère +2 400 €/an de revenu brut, soit environ +6 à +7 % de marge. La performance énergétique BBC (PEB A–B) du bâtiment neuf est un argument de valorisation locative significatif sur ce marché.
+    <strong>Hypothèses :</strong> annuité calculée sur 100 % du coût TVAC (apport 0 €) ; vacance 5 % sur les loyers résidentiels uniquement ; précompte immobilier 6 500 €/an seule charge propriétaire ; pharmacie 1 900 €/mois jusqu'en 2030 puis 3 500 €/mois.
+    <br><br>
+    <strong>Sensibilité :</strong> chaque 50 €/mois de loyer/studio génère +2 400 €/an de revenu brut sur l'annexe. La performance énergétique BBC (PEB A–B) du bâtiment neuf est un argument de valorisation locative significatif sur ce marché.
   </div>
 </div>
 
@@ -878,61 +909,51 @@ function fmt(n) { return Math.round(n).toLocaleString('fr-BE') + ' €'; }
 function fmtK(n) { return Math.round(n/1000) + ' k€'; }
 function pmt(P, r, n) { if (!r) return P/n; return P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1); }
 
-function getExistingRev(vac) {
-  const e1 = +(document.getElementById('e-loyer-1') ? document.getElementById('e-loyer-1').value : 800);
-  const e2 = +(document.getElementById('e-loyer-2') ? document.getElementById('e-loyer-2').value : 800);
-  const e3 = +(document.getElementById('e-loyer-3') ? document.getElementById('e-loyer-3').value : 800);
-  const brutExist = (e1 + e2 + e3) * 12;
-  return brutExist * (1 - vac/100);
+// Précompte immobilier — seules charges propriétaire (€/an)
+const PI_EXIST = 1500, PI_PHARMA = 3500, PI_NEUF = 1500, PI_TOTAL = PI_EXIST + PI_PHARMA + PI_NEUF;
+const PHARMA_2030 = 3500 * 12; // 42 000 €/an dès 2030
+
+function readRecettes() {
+  const g = id => +document.getElementById(id).value;
+  const e1=g('e-loyer-1'), e2=g('e-loyer-2'), e3=g('e-loyer-3');
+  const n1=g('r-loyer-1'), n2=g('r-loyer-2'), n3=g('r-loyer-3'), n4=g('r-loyer-4');
+  const ph=g('r-pharma'), vac=g('r-vac');
+  const brutExist=(e1+e2+e3)*12, brutNeuf=(n1+n2+n3+n4)*12, brutPharma=ph*12;
+  const brutResid=brutExist+brutNeuf;
+  return {e1,e2,e3,n1,n2,n3,n4,ph,vac,brutExist,brutNeuf,brutPharma,brutResid,
+          netExist:brutExist*(1-vac/100)-PI_EXIST,
+          netNeuf :brutNeuf *(1-vac/100)-PI_NEUF,
+          netPharma:brutPharma-PI_PHARMA,
+          dispo:brutResid*(1-vac/100)+brutPharma-PI_TOTAL,
+          dispo2030:brutResid*(1-vac/100)+PHARMA_2030-PI_TOTAL};
 }
 
 function updateRecettes() {
-  // Existants
-  const e1 = +document.getElementById('e-loyer-1').value;
-  const e2 = +document.getElementById('e-loyer-2').value;
-  const e3 = +document.getElementById('e-loyer-3').value;
-  document.getElementById('e-loyer-1-out').textContent = e1.toLocaleString('fr-BE') + ' €';
-  document.getElementById('e-loyer-2-out').textContent = e2.toLocaleString('fr-BE') + ' €';
-  document.getElementById('e-loyer-3-out').textContent = e3.toLocaleString('fr-BE') + ' €';
+  const d = readRecettes();
+  const set=(id,v)=>{const el=document.getElementById(id); if(el) el.textContent=v;};
+  ['e-loyer-1','e-loyer-2','e-loyer-3','r-loyer-1','r-loyer-2','r-loyer-3','r-loyer-4','r-pharma']
+    .forEach(id=>set(id+'-out', (+document.getElementById(id).value).toLocaleString('fr-BE')+' €'));
+  set('r-vac-out', d.vac+' %');
 
-  // Neufs
-  const n1 = +document.getElementById('r-loyer-1').value;
-  const n2 = +document.getElementById('r-loyer-2').value;
-  const n3 = +document.getElementById('r-loyer-3').value;
-  const n4 = +document.getElementById('r-loyer-4').value;
-  document.getElementById('r-loyer-1-out').textContent = n1.toLocaleString('fr-BE') + ' €';
-  document.getElementById('r-loyer-2-out').textContent = n2.toLocaleString('fr-BE') + ' €';
-  document.getElementById('r-loyer-3-out').textContent = n3.toLocaleString('fr-BE') + ' €';
-  document.getElementById('r-loyer-4-out').textContent = n4.toLocaleString('fr-BE') + ' €';
+  set('rec-exist-brut', fmt(d.brutExist));
+  set('rec-exist-brut-sub', d.e1+' + '+d.e2+' + '+d.e3+' € × 12');
+  set('rec-exist-net', fmt(d.netExist));
+  set('rec-exist-net2', fmt(d.netExist));
 
-  const vac = +document.getElementById('r-vac').value;
-  const chg = +document.getElementById('r-charges').value;
-  document.getElementById('r-vac-out').textContent     = vac + ' %';
-  document.getElementById('r-charges-out').textContent = chg.toLocaleString('fr-BE') + ' €';
+  set('rec-pharma-brut', fmt(d.brutPharma));
+  set('rec-pharma-brut-sub', d.ph.toLocaleString('fr-BE')+' € × 12');
+  set('rec-pharma-net', fmt(d.netPharma));
+  set('rec-pharma-net2', fmt(d.netPharma));
 
-  const brutExist = (e1 + e2 + e3) * 12;
-  const brutNeuf  = (n1 + n2 + n3 + n4) * 12;
-  const brutTotal = brutExist + brutNeuf;
-  const vacTotal  = Math.round(brutTotal * vac / 100);
-  const dispo     = brutTotal - vacTotal - chg;
+  set('rec-neuf-net', fmt(d.netNeuf));
 
-  // Répartition proportionnelle des charges
-  const ratioExist = brutExist / brutTotal;
-  const netExist   = Math.round(brutExist * (1 - vac/100) - chg * ratioExist);
-  const netNeuf    = Math.round(brutNeuf  * (1 - vac/100) - chg * (1 - ratioExist));
-
-  document.getElementById('rec-exist-brut').textContent     = fmt(brutExist);
-  document.getElementById('rec-exist-brut-sub').textContent = e1 + ' + ' + e2 + ' + ' + e3 + ' € × 12';
-  document.getElementById('rec-exist-net').textContent      = fmt(netExist);
-  document.getElementById('rec-exist-net2').textContent     = fmt(netExist);
-  document.getElementById('rec-neuf-net').textContent       = fmt(netNeuf);
-
-  document.getElementById('rec-brut').textContent      = fmt(brutTotal);
-  document.getElementById('rec-brut-sub').textContent  = fmt(brutExist) + ' exist. + ' + fmt(brutNeuf) + ' neufs';
-  document.getElementById('rec-vac').textContent       = '− ' + fmt(vacTotal);
-  document.getElementById('rec-charg').textContent     = '− ' + fmt(chg);
-  document.getElementById('rec-dispo').textContent     = fmt(dispo);
-  document.getElementById('rec-dispo-sub').textContent = '~ ' + fmt(dispo/12) + '/mois';
+  set('rec-brut', fmt(d.brutResid+d.brutPharma));
+  set('rec-brut-sub', fmt(d.brutResid)+' studios + '+fmt(d.brutPharma)+' pharma');
+  set('rec-vac', '− '+fmt(d.brutResid*d.vac/100));
+  set('rec-charg', '− '+fmt(PI_TOTAL));
+  set('rec-dispo', fmt(d.dispo));
+  set('rec-dispo-sub', '~ '+fmt(d.dispo/12)+'/mois');
+  set('rec-dispo-2030', fmt(d.dispo2030)+'/an');
 }
 
 function updateFin() {
@@ -958,23 +979,11 @@ function updateFin() {
   document.getElementById('fin-ann').textContent = fmt(ann) + '/an';
   document.getElementById('fin-int').textContent = fmtK(inte);
 
-  // Revenus neufs seuls
-  const n1 = +(document.getElementById('r-loyer-1') ? document.getElementById('r-loyer-1').value : 850);
-  const n2 = +(document.getElementById('r-loyer-2') ? document.getElementById('r-loyer-2').value : 850);
-  const n3 = +(document.getElementById('r-loyer-3') ? document.getElementById('r-loyer-3').value : 850);
-  const n4 = +(document.getElementById('r-loyer-4') ? document.getElementById('r-loyer-4').value : 850);
-  const e1 = +(document.getElementById('e-loyer-1') ? document.getElementById('e-loyer-1').value : 800);
-  const e2 = +(document.getElementById('e-loyer-2') ? document.getElementById('e-loyer-2').value : 800);
-  const e3 = +(document.getElementById('e-loyer-3') ? document.getElementById('e-loyer-3').value : 800);
-  const vac = +(document.getElementById('r-vac')    ? document.getElementById('r-vac').value    : 5);
-  const chg = +(document.getElementById('r-charges')? document.getElementById('r-charges').value: 10000);
-
-  const brutNeuf  = (n1+n2+n3+n4)*12;
-  const brutTotal = brutNeuf + (e1+e2+e3)*12;
-  const ratioNeuf = brutNeuf / brutTotal;
-  const revNeuf   = brutNeuf  * (1-vac/100) - chg * ratioNeuf;
-  const revTotal  = brutTotal * (1-vac/100) - chg;
-
+  // DSCR : annexe seule vs patrimoine entier (pharmacie incluse)
+  const d = (document.getElementById('r-loyer-1')) ? readRecettes()
+    : {netNeuf:850*4*12*0.95-PI_NEUF, dispo:0};
+  const revNeuf  = d.netNeuf;
+  const revTotal = d.dispo;
   const margeNeuf = revNeuf - ann;
   const pct       = Math.round(margeNeuf / revNeuf * 100);
   const dscrNeuf  = revNeuf  / ann;
@@ -982,17 +991,17 @@ function updateFin() {
 
   const verd   = document.getElementById('fin-verdict');
   const dscrEl = document.getElementById('fin-dscr');
-  dscrEl.innerHTML = 'DSCR annexe seule : <strong>' + dscrNeuf.toFixed(2) + '</strong> · DSCR patrimoine total : <strong>' + dscrTotal.toFixed(2) + '</strong> (seuil bancaire ≥ 1,20)';
+  dscrEl.innerHTML = 'DSCR annexe seule : <strong>' + dscrNeuf.toFixed(2) + '</strong> · DSCR patrimoine (pharmacie incl.) : <strong>' + dscrTotal.toFixed(2) + '</strong> (seuil bancaire ≥ 1,20)';
   dscrEl.className = dscrNeuf >= 1.20 ? 'alert alert-good' : dscrTotal >= 1.20 ? 'alert alert-warn' : 'alert alert-bad';
   if (margeNeuf > 0 && pct >= 10) {
     verd.className = 'alert alert-good';
-    verd.innerHTML = '✓ Projet neuf autofinancé — marge de <strong>' + pct + ' %</strong> soit <strong>' + fmt(margeNeuf) + '/an</strong> sur les seuls loyers de l\'annexe';
+    verd.innerHTML = '✓ Annexe autofinancée — marge de <strong>' + pct + ' %</strong> soit <strong>' + fmt(margeNeuf) + '/an</strong> sur les seuls loyers des 4 studios neufs';
   } else if (margeNeuf > 0) {
     verd.className = 'alert alert-warn';
-    verd.innerHTML = '⚠ Positif mais marge <strong>' + pct + ' %</strong> sur l\'annexe seule — patrimoine global couvre la dette (DSCR ' + dscrTotal.toFixed(2) + ')';
+    verd.innerHTML = '⚠ Positif mais marge <strong>' + pct + ' %</strong> sur l\'annexe seule — le patrimoine entier couvre largement la dette (DSCR ' + dscrTotal.toFixed(2) + ')';
   } else {
     verd.className = 'alert alert-bad';
-    verd.innerHTML = '✗ Déficit de <strong>' + fmt(Math.abs(margeNeuf)) + '/an</strong> sur l\'annexe seule — les studios existants compensent (DSCR total ' + dscrTotal.toFixed(2) + ')';
+    verd.innerHTML = '✗ Déficit de <strong>' + fmt(Math.abs(margeNeuf)) + '/an</strong> sur l\'annexe seule — studios existants + pharmacie compensent (DSCR patrimoine ' + dscrTotal.toFixed(2) + ')';
   }
 }
 
